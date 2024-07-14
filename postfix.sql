@@ -2,8 +2,8 @@ CREATE TABLE `admin` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `superadmin` tinyint(1) NOT NULL DEFAULT '0',
-  `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Postfix Admin - Virtual Admins';
 
@@ -11,16 +11,16 @@ CREATE TABLE `alias` (
   `address` varchar(255) NOT NULL,
   `goto` text NOT NULL,
   `domain` varchar(255) NOT NULL,
-  `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Postfix Admin - Virtual Aliases';
 
 CREATE TABLE `alias_domain` (
   `alias_domain` varchar(255) NOT NULL,
   `target_domain` varchar(255) NOT NULL,
-  `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Postfix Admin - Domain Aliases';
 
@@ -39,15 +39,15 @@ CREATE TABLE `domain` (
   `quota` bigint(20) NOT NULL DEFAULT '0',
   `transport` varchar(255) NOT NULL,
   `backupmx` tinyint(1) NOT NULL DEFAULT '0',
-  `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Postfix Admin - Virtual Domains';
 
 CREATE TABLE `domain_admins` (
   `username` varchar(255) NOT NULL,
   `domain` varchar(255) NOT NULL,
-  `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Postfix Admin - Domain Admins';
 
@@ -78,7 +78,7 @@ CREATE TABLE `fetchmail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `log` (
-  `timestamp` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `username` varchar(255) NOT NULL,
   `domain` varchar(255) NOT NULL,
   `action` varchar(255) NOT NULL,
@@ -93,8 +93,8 @@ CREATE TABLE `mailbox` (
   `quota` bigint(20) NOT NULL DEFAULT '0',
   `local_part` varchar(255) NOT NULL,
   `domain` varchar(255) NOT NULL,
-  `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Postfix Admin - Virtual Mailboxes';
 
