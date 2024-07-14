@@ -119,7 +119,7 @@ CREATE TABLE `vacation` (
   `cache` text NOT NULL,
   `domain` varchar(255) NOT NULL,
   `interval_time` int(11) NOT NULL DEFAULT '0',
-  `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Postfix Admin - Virtual Vacation';
